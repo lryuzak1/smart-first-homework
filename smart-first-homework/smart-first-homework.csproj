@@ -48,7 +48,7 @@
     <Compile Include="CategoryService.cs" />
     <Compile Include="ICategoryRepository.cs" />
     <Compile Include="ICategoryService.cs" />
-    <Compile Include="IProcutService.cs" />
+    <Compile Include="IProductService.cs" />
     <Compile Include="IProductRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Product.cs" />

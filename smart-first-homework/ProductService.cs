@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace smart_first_homework
 {
-    public class ProductService :  IProcutService
+    public class ProductService :  IProductService
     {
         private readonly IProductRepository productRepository;
 

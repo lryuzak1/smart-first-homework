@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace smart_first_homework
 {
-    public interface IProcutService
+    public interface IProductService
     {
         void Add(Product item, Category category);
         void makeDiscount(int percernt, Product product);
