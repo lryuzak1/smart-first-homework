@@ -8,7 +8,7 @@ namespace smart_first_homework
 {
     public class CategoryRepository : ICategoryRepository
     {
-        List<Category> categories = new List<Category>();
+        private List<Category> categories = new List<Category>();
         public void Add(Category category)
         {
             categories.Add(category);
