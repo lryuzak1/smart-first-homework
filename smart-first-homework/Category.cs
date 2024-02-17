@@ -10,18 +10,6 @@ namespace smart_first_homework
     {
         public int id { get; set; }
         public string name { get; set; }
-        public List<Product> products { get; set; }
-
-        public Category(string name, List<Product> products)
-        {
-            this.name = name;
-            this.products = products;
-        }
-
-        public Category(string name)
-        {
-            this.name = name;
-            products = new List<Product>();
-        }
+        public List<Product> products { get; set; } = new List<Product>();
     }
 }

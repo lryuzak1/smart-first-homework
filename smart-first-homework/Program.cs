@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace smart_first_homework
 {
@@ -12,9 +13,9 @@ namespace smart_first_homework
             var categoryService = new CategoryService(categoryRepository);
 
 
-            var fruitsCategory = new Category("fruits");
-            var vegetablesCategory = new Category("vegetables");
-            var drinksCategory = new Category("drinks");
+            var fruitsCategory = new Category { name="fruits" };
+            var vegetablesCategory = new Category { name = "vegetables" };
+            var drinksCategory = new Category { name = "drinks" };
 
             
 
