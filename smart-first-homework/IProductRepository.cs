@@ -9,7 +9,7 @@ namespace smart_first_homework
    public interface IProductRepository : IRepository<Product>
     {
         void Add(Product item, Category category);
-        void makeDiscount(int percernt,Product product);
-        void restorePrice(Product product);
+        void MakeDiscount(int percernt,Product product);
+        void RestorePrice(Product product);
     }
 }

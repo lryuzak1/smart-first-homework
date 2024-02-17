@@ -36,11 +36,11 @@ namespace smart_first_homework
             return products.FirstOrDefault(x => x.id == id); 
         }
 
-        public void makeDiscount(int percernt, Product product)
+        public void MakeDiscount(int percernt, Product product)
         {
             product.price = ((100 - percernt)/100.0) * product.price;
         }
-        public void restorePrice(Product product) {
+        public void RestorePrice(Product product) {
             product.price = product.originalPrice;
         }
     }
