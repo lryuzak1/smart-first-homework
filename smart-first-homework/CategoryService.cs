@@ -8,36 +8,36 @@ namespace smart_first_homework
 {
     public class CategoryService : ICategoryService
     {
-        private readonly ICategoryRepository categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
         public CategoryService(ICategoryRepository categoryRepository) 
         {
-            this.categoryRepository = categoryRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public void Add(Category category)
         {
-            categoryRepository.Add(category);
+            _categoryRepository.Add(category);
         }
 
         public void Delete(int id)
         {
-            categoryRepository.Delete(id);
+            _categoryRepository.Delete(id);
         }
 
         public IEnumerable<Category> GetAll()
         {
-            return categoryRepository.GetAll();
+            return _categoryRepository.GetAll();
         }
 
         public Category GetByID(int id)
         {
-            return categoryRepository.GetByID(id);
+            return _categoryRepository.GetByID(id);
         }
 
         public IEnumerable<Product> GetProducts(Category category)
         {
-            return categoryRepository.GetProducts(category);
+            return _categoryRepository.GetProducts(category);
         }
     }
 }
