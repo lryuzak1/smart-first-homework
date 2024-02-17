@@ -12,7 +12,7 @@ namespace smart_first_homework
         public string name { get; set; }
         public int quantity { get; set; }
         public double price { get; set; }
-        public double originalPrice { get; set; }
+        public double originalPrice { get; set; } 
         public Category category { get; set; }
 
         public Product(string name, int quantity, double price, Category category)
@@ -22,8 +22,6 @@ namespace smart_first_homework
             this.price = price;
             this.category = category;
             originalPrice = price;
-
-
         }
 
         public Product(string name, double price, Category category)
