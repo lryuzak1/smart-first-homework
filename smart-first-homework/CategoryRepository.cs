@@ -22,7 +22,6 @@ namespace smart_first_homework
             foreach (Product p in category.products) {
                 p.category = null;
             }
-
         }
 
         public IEnumerable<Category> GetAll()
