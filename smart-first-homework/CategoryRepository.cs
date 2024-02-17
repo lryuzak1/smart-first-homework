@@ -18,10 +18,7 @@ namespace smart_first_homework
         public void Delete(int id)
         {
             Category category = categories.FirstOrDefault(x => x.id == id);
-            //remove from category repository's list
             categories.Remove(category);
-
-            //remove category from product object instance variable
             foreach (Product p in category.products) {
                 p.category = null;
             }
