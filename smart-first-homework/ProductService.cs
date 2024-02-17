@@ -35,12 +35,12 @@ namespace smart_first_homework
             return productRepository.GetByID(id);
         }
 
-        public void makeDiscount(int percernt, Product product)
+        public void MakeDiscount(int percernt, Product product)
         {
             productRepository.makeDiscount(percernt, product);
         }
 
-        public void restorePrice(Product product)
+        public void RestorePrice(Product product)
         {
             productRepository.restorePrice(product);
         }

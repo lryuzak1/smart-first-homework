@@ -55,7 +55,7 @@ namespace smart_first_homework
             //remove potato  from different vegetables (Product ID:4)
             productService.Delete(4);
             //discount vodka by 20%
-            productService.makeDiscount(21, vodka);
+            productService.MakeDiscount(21, vodka);
 
             Console.WriteLine();
             Console.WriteLine("after changes: \n");

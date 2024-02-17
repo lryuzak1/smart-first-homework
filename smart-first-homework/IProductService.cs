@@ -9,8 +9,8 @@ namespace smart_first_homework
     public interface IProductService
     {
         void Add(Product item, Category category);
-        void makeDiscount(int percernt, Product product);
-        void restorePrice(Product product);
+        void MakeDiscount(int percernt, Product product);
+        void RestorePrice(Product product);
         void Delete(int id);
         Product GetByID(int id);
         IEnumerable<Product> GetAll();
