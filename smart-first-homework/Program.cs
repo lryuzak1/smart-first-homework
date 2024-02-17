@@ -51,7 +51,7 @@ namespace smart_first_homework
             }
 
             //remove fruit category (Category ID:1)
-            categoryService.Delete(1);
+            categoryService.Delete(1,productRepository);
             //remove potato  from different vegetables (Product ID:4)
             productService.Delete(4);
             //discount vodka by 20%
@@ -71,6 +71,7 @@ namespace smart_first_homework
                 }
                 Console.Write("\n");
             }
+            Console.ReadLine();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace smart_first_homework
     {
         void Add(Category category);
         IEnumerable<Product> GetProducts(Category category);
-        void Delete(int id);
+        void Delete(int id, IProductRepository productRepository);
         Category GetByID(int id);
         IEnumerable<Category> GetAll();
     }

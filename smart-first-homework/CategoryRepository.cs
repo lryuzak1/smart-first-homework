@@ -15,12 +15,14 @@ namespace smart_first_homework
             category.id = categories.Count();
         }
 
-        public void Delete(int id)
+        public void Delete(int id, IProductRepository productRepository)
         {
             var category = categories.FirstOrDefault(x => x.id == id);
             categories.Remove(category);
             foreach (Product p in category.products) {
-                p.category = null;
+                //aq deletes ver viyeneb  da axali metodi davwere magistvis(mxolod repos listidan rom amoshalos
+                //da konkretuli produqtis kategoriis obieqtshi ar dauwyos washla torem foreachs ushlis xels rogorc mivxvdi)
+                productRepository.RemoveFromList(p.id);
             }
         }
 

@@ -20,9 +20,9 @@ namespace smart_first_homework
             _categoryRepository.Add(category);
         }
 
-        public void Delete(int id)
+        public void Delete(int id, IProductRepository productRepository)
         {
-            _categoryRepository.Delete(id);
+            _categoryRepository.Delete(id,productRepository);
         }
 
         public IEnumerable<Category> GetAll()

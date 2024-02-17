@@ -19,11 +19,10 @@ namespace smart_first_homework
         public void Delete(int id)
         {
             Product product = products.FirstOrDefault(x => x.id == id);
-            //remove from product repository's list
-            products.Remove(product);
-            //remove from category object's list
-            product.category.products.Remove(product);
             
+            products.Remove(product);
+
+            product.category.products.Remove(product);    
         }
 
         public IEnumerable<Product> GetAll()
@@ -42,6 +41,15 @@ namespace smart_first_homework
         }
         public void RestorePrice(Product product) {
             product.price = product.originalPrice;
+        }
+
+        //ver mivxvdi uketesad rogor davwero Deletes gamodzaxebis shemtxvevashi(kategoriis washlidan CategoryReposhi)
+        //foreach kategoriaze gadarbenisas miwevda washla produqtis kategoriebidan produqtis( product.category.products.Remove(product);) da
+        //konfliqti iqmneboda exceptions agdebda
+        //(mokled rom vtqva kategoriis washlis dros produqtebis washlas ver vaxerxebdi am klasis Delete metodis daxmarebit radgan
+        //roca 1 produqts vshli mashinc am Deletes viyeneb da kategorias vwvdebi da iqedanac vshli produqts)
+        public void RemoveFromList(int id) {
+            products.Remove(products.FirstOrDefault(x => x.id == id));
         }
     }
 }

@@ -9,6 +9,7 @@ namespace smart_first_homework
    public interface ICategoryRepository:IRepository<Category>
     {
         void Add(Category category);
+        void Delete(int id, IProductRepository productRepository);
         IEnumerable<Product> GetProducts(Category category);
     }
 }
