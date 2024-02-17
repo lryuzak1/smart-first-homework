@@ -17,7 +17,7 @@ namespace smart_first_homework
 
         public void Delete(int id)
         {
-            Category category = categories.FirstOrDefault(x => x.id == id);
+            var category = categories.FirstOrDefault(x => x.id == id);
             categories.Remove(category);
             foreach (Product p in category.products) {
                 p.category = null;
