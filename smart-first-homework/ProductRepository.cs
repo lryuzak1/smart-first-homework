@@ -8,48 +8,48 @@ namespace smart_first_homework
 {
     public class ProductRepository : IProductRepository
     {
-        private List<Product> products = new List<Product>();
+        private List<Product> Products = new List<Product>();
         public void Add(Product item,Category category)
         {
-            products.Add(item);
-            category.products.Add(item);
-            item.id = products.Count();
+            Products.Add(item);
+            category.Products.Add(item);
+            item.Id = Products.Count();
         }
 
         public void Delete(int id)
         {
-            Product product = products.FirstOrDefault(x => x.id == id);
+            Product product = Products.FirstOrDefault(x => x.Id == id);
             
-            products.Remove(product);
+            Products.Remove(product);
 
-            product.category.products.Remove(product);    
+            product.Category.Products.Remove(product);    
         }
 
         public IEnumerable<Product> GetAll()
         {
-            return products;
+            return Products;
         }
 
         public Product GetByID(int id)
         {
-            return products.FirstOrDefault(x => x.id == id); 
+            return Products.FirstOrDefault(x => x.Id == id); 
         }
 
         public void MakeDiscount(int percernt, Product product)
         {
-            product.price = ((100 - percernt)/100.0) * product.price;
+            product.Price = ((100 - percernt)/100.0) * product.Price;
         }
         public void RestorePrice(Product product) {
-            product.price = product.originalPrice;
+            product.Price = product.OriginalPrice;
         }
 
         //ver mivxvdi uketesad rogor davwero Deletes gamodzaxebis shemtxvevashi(kategoriis washlidan CategoryReposhi)
-        //foreach kategoriaze gadarbenisas miwevda washla produqtis kategoriebidan produqtis( product.category.products.Remove(product);) da
+        //foreach kategoriaze gadarbenisas miwevda washla produqtis kategoriebidan produqtis( product.category.Products.Remove(product);) da
         //konfliqti iqmneboda exceptions agdebda
         //(mokled rom vtqva kategoriis washlis dros produqtebis washlas ver vaxerxebdi am klasis Delete metodis daxmarebit radgan
         //roca 1 produqts vshli mashinc am Deletes viyeneb da kategorias vwvdebi da iqedanac vshli produqts)
         public void RemoveFromList(int id) {
-            products.Remove(products.FirstOrDefault(x => x.id == id));
+            Products.Remove(Products.FirstOrDefault(x => x.Id == id));
         }
     }
 }

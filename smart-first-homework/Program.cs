@@ -13,9 +13,9 @@ namespace smart_first_homework
             var categoryService = new CategoryService(categoryRepository);
 
 
-            var fruitsCategory = new Category { name="fruits" };
-            var vegetablesCategory = new Category { name = "vegetables" };
-            var drinksCategory = new Category { name = "drinks" };
+            var fruitsCategory = new Category { Name="fruits" };
+            var vegetablesCategory = new Category { Name = "vegetables" };
+            var drinksCategory = new Category { Name = "drinks" };
 
             
 
@@ -43,9 +43,9 @@ namespace smart_first_homework
 
             //print all products by category
             foreach (Category category in categoryService.GetAll()) {
-                Console.Write("Category: ID: " +category.id+ ", Name: "+ category.name+"\n" + "Products:");
+                Console.Write("Category: ID: " +category.Id+ ", Name: "+ category.Name+"\n" + "Products:");
                 foreach (Product product in categoryService.GetProducts(category)) {
-                    Console.Write("[ID: "+product.id+", "+ "name: " + product.name+", price: "+product.price+"] ");
+                    Console.Write("[ID: "+product.Id+", "+ "name: " + product.Name+", price: "+product.Price+"] ");
                 }
                 Console.Write("\n");
             }
@@ -64,10 +64,10 @@ namespace smart_first_homework
             //print all products by category
             foreach (Category category in categoryService.GetAll())
             {
-                Console.Write("Category: ID: " + category.id + ", Name: " + category.name + "\n" + "Products:");
+                Console.Write("Category: ID: " + category.Id + ", Name: " + category.Name + "\n" + "Products:");
                 foreach (Product product in categoryService.GetProducts(category))
                 {
-                    Console.Write("[ID: " + product.id + ", " + "name: " + product.name + ", price: " + product.price + "] ");
+                    Console.Write("[ID: " + product.Id + ", " + "name: " + product.Name + ", price: " + product.Price + "] ");
                 }
                 Console.Write("\n");
             }

@@ -14,6 +14,6 @@ namespace smart_first_homework.Entites
         public string Zipcode { get; set; }
         //relation
         public int PersonId { get; set; }
-        public Person person { get; set; }
+        public Person Person { get; set; }
     }
 }

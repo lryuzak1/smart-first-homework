@@ -8,37 +8,37 @@ namespace smart_first_homework
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private List<Category> categories = new List<Category>();
+        private List<Category> Categories = new List<Category>();
         public void Add(Category category)
         {
-            categories.Add(category);
-            category.id = categories.Count();
+            Categories.Add(category);
+            category.Id = Categories.Count();
         }
 
         public void Delete(int id, IProductRepository productRepository)
         {
-            var category = categories.FirstOrDefault(x => x.id == id);
-            categories.Remove(category);
-            foreach (Product p in category.products) {
+            var category = Categories.FirstOrDefault(x => x.Id == id);
+            Categories.Remove(category);
+            foreach (Product p in category.Products) {
                 //aq deletes ver viyeneb  da axali metodi davwere magistvis(mxolod repos listidan rom amoshalos
                 //da konkretuli produqtis kategoriis obieqtshi ar dauwyos washla torem foreachs ushlis xels rogorc mivxvdi)
-                productRepository.RemoveFromList(p.id);
+                productRepository.RemoveFromList(p.Id);
             }
         }
 
         public IEnumerable<Category> GetAll()
         {
-            return categories;
+            return Categories;
         }
 
         public Category GetByID(int id)
         {
-            return categories.FirstOrDefault(x => x.id == id);
+            return Categories.FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Product> GetProducts(Category category)
         {
-            return category.products;          
+            return category.Products;          
         }
     }
 }
