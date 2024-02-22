@@ -12,8 +12,8 @@ using smart_first_homework.Database;
 namespace smart_first_homework.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20240218215620_create")]
-    partial class create
+    [Migration("20240222162457_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,7 +65,7 @@ namespace smart_first_homework.Migrations
                     b.HasIndex("PersonId")
                         .IsUnique();
 
-                    b.ToTable("Address");
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("smart_first_homework.Entites.Email", b =>
@@ -89,7 +89,7 @@ namespace smart_first_homework.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Email");
+                    b.ToTable("Emails");
                 });
 
             modelBuilder.Entity("smart_first_homework.Entites.Event", b =>
@@ -111,7 +111,7 @@ namespace smart_first_homework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Event");
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("smart_first_homework.Entites.Person", b =>
@@ -121,6 +121,9 @@ namespace smart_first_homework.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -136,7 +139,7 @@ namespace smart_first_homework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person");
+                    b.ToTable("Persons");
                 });
 
             modelBuilder.Entity("smart_first_homework.Entites.PhoneNumber", b =>
@@ -160,7 +163,7 @@ namespace smart_first_homework.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("PhoneNumber");
+                    b.ToTable("PhoneNumbers");
                 });
 
             modelBuilder.Entity("PersonEvent", b =>

@@ -5,6 +5,11 @@ namespace smart_first_homework.Database
 {
     public class MyContext:DbContext
     {
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Email> Emails { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
@@ -16,6 +21,7 @@ namespace smart_first_homework.Database
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             new PersonEntityTypeConfiguration().Configure(modelBuilder.Entity<Person>());
+            new AddressEntityTypeConfiguration().Configure(modelBuilder.Entity<Address>());
         }
     }
 }

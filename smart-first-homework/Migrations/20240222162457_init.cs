@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace smart_first_homework.Migrations
 {
     /// <inheritdoc />
-    public partial class create : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Event",
+                name: "Events",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,27 +23,28 @@ namespace smart_first_homework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Event", x => x.Id);
+                    table.PrimaryKey("PK_Events", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Person",
+                name: "Persons",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Lastname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Person", x => x.Id);
+                    table.PrimaryKey("PK_Persons", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Address",
+                name: "Addresses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -55,17 +56,17 @@ namespace smart_first_homework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Address", x => x.Id);
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Address_Person_PersonId",
+                        name: "FK_Addresses_Persons_PersonId",
                         column: x => x.PersonId,
-                        principalTable: "Person",
+                        principalTable: "Persons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Email",
+                name: "Emails",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -76,11 +77,11 @@ namespace smart_first_homework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Email", x => x.Id);
+                    table.PrimaryKey("PK_Emails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Email_Person_PersonId",
+                        name: "FK_Emails_Persons_PersonId",
                         column: x => x.PersonId,
-                        principalTable: "Person",
+                        principalTable: "Persons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -96,21 +97,21 @@ namespace smart_first_homework.Migrations
                 {
                     table.PrimaryKey("PK_PersonEvent", x => new { x.EventsId, x.PersonsId });
                     table.ForeignKey(
-                        name: "FK_PersonEvent_Event_EventsId",
+                        name: "FK_PersonEvent_Events_EventsId",
                         column: x => x.EventsId,
-                        principalTable: "Event",
+                        principalTable: "Events",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PersonEvent_Person_PersonsId",
+                        name: "FK_PersonEvent_Persons_PersonsId",
                         column: x => x.PersonsId,
-                        principalTable: "Person",
+                        principalTable: "Persons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PhoneNumber",
+                name: "PhoneNumbers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -121,24 +122,24 @@ namespace smart_first_homework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhoneNumber", x => x.Id);
+                    table.PrimaryKey("PK_PhoneNumbers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PhoneNumber_Person_PersonId",
+                        name: "FK_PhoneNumbers_Persons_PersonId",
                         column: x => x.PersonId,
-                        principalTable: "Person",
+                        principalTable: "Persons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Address_PersonId",
-                table: "Address",
+                name: "IX_Addresses_PersonId",
+                table: "Addresses",
                 column: "PersonId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Email_PersonId",
-                table: "Email",
+                name: "IX_Emails_PersonId",
+                table: "Emails",
                 column: "PersonId");
 
             migrationBuilder.CreateIndex(
@@ -147,8 +148,8 @@ namespace smart_first_homework.Migrations
                 column: "PersonsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhoneNumber_PersonId",
-                table: "PhoneNumber",
+                name: "IX_PhoneNumbers_PersonId",
+                table: "PhoneNumbers",
                 column: "PersonId");
         }
 
@@ -156,22 +157,22 @@ namespace smart_first_homework.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Address");
+                name: "Addresses");
 
             migrationBuilder.DropTable(
-                name: "Email");
+                name: "Emails");
 
             migrationBuilder.DropTable(
                 name: "PersonEvent");
 
             migrationBuilder.DropTable(
-                name: "PhoneNumber");
+                name: "PhoneNumbers");
 
             migrationBuilder.DropTable(
-                name: "Event");
+                name: "Events");
 
             migrationBuilder.DropTable(
-                name: "Person");
+                name: "Persons");
         }
     }
 }

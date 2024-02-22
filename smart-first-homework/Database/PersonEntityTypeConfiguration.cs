@@ -12,6 +12,7 @@ namespace smart_first_homework.Database
             builder.HasMany(x => x.PhoneNumbers).WithOne(x => x.Person).HasForeignKey(x => x.PersonId);
             builder.HasMany(x => x.Emails).WithOne(x => x.Person).HasForeignKey(x => x.PersonId);
             builder.HasMany(x => x.Events).WithMany(x => x.Persons).UsingEntity("PersonEvent");
+
         }
     }
 }
