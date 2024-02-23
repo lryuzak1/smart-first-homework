@@ -48,7 +48,9 @@ namespace smart_first_homework.Services
             var person = _database.Persons.Include(x => x.Address).FirstOrDefault(x => x.Id == personId);
             if (person != null)
             {
-                person.Address = address;
+                person.Address.City = address.City;
+                person.Address.Street = address.Street;
+                person.Address.Zipcode = address.Zipcode;
                 _database.SaveChanges();
                 return;
             }
